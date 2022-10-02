@@ -1,0 +1,18 @@
+{% extends "AppsServicios/plantilla_base_2.html" %}
+
+{% block blockname %}
+
+{% if exitoso %}
+<div style="background-color:antiquewhite;"><h4>La información fue agregada!!!</h4> </div>
+
+{% endif %}
+
+<h4>Bienvenido a la empresa Apps Services!</h4>
+<img src="{{ user.avatar.imagen.url }}" />
+
+
+  <h1 class="text-center"><a href="{% url 'inicio' %}" 
+    class="btn btn-outline-primary" > VOLVER</a href ="{% url 'inicio' %}"></h1>
+  
+  <hr><hr>
+{% endblock blockname %} 

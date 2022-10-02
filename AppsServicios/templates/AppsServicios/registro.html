@@ -1,0 +1,23 @@
+{% extends "AppsServicios/plantilla_base_2.html" %}
+{% load static %}
+
+{% block blockname %}
+<body>
+    <br>
+    <p class="text-center"><img class="rounded-circle" src="https://watermark.lovepik.com/photo/40150/2130.jpg_wh1200.jpg"height="400" alt="..." /></p>
+    <hr>
+
+    <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input type="submit" value="Registrate">
+        
+        <br>
+            <a href="{% url 'login' %}" class="btn btn-outline-primary" disabled> VOLVER</a>
+        
+
+    </form>
+
+</body>
+{% endblock blockname %}

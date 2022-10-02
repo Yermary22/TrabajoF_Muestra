@@ -1,0 +1,65 @@
+{% extends "AppsServicios/plantilla_base_2.html" %}
+
+{% block blockname %}
+
+{% if borrado %}
+
+<div class="eliminado">Fue borrado exitosamente la tecnologia Id: {{ borrado }}</div>
+
+{% endif %}   
+
+<body>
+  <br>
+  <p class="text-center"><img class="rounded-circle" src="https://watermark.lovepik.com/photo/40150/2130.jpg_wh1200.jpg"height="400"alt="..." /></p>
+  <hr>
+  <br>
+  <h1 class="text-center"> PRINCIPALES TECNOLOGIAS </h1>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>Tecnologias </p>
+  <center>
+  <h4 class="text-center"> Buscar tecnologia </h4>
+        <form action="{% url 'buscar_tecnologia' %}" method="GET"> {% csrf_token %}
+          <input type="integer" name="tecnologia">
+  </span>
+  <input type="submit" value="Buscar" />
+</form>
+
+      <table class="table table-striped">
+          <tr>
+            <th>ID</th>  
+            <th>Tecnologia</th>
+              <th>Version </th>
+              <th>Editar o eliminar </th>
+          </tr>
+          {% for tecnologia in tecnologia %}
+          <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{tecnologia.nombre}}</td>
+              <td>{{tecnologia.version}}</td>
+
+              <td>
+              
+                  <a style="color: black; text-decoration: none" href="{% url 'editar_tecnologia' tecnologia.id %}">Editar</a> |
+                  <a style="color: black; text-decoration: none" href="{% url 'eliminar_tecnologia' tecnologia.id %}">Eliminar</a> 
+                    
+              </td>
+              
+          </tr>
+              {% endfor %}
+      </table>
+  </center>
+
+  <p> Para agregar una nueva tecnologia, click  <a style="text-decoration: none;" href="{% url 'tecnologia_formulario' %}" class="btn btn-outline-primary">AQUI</a> </p>
+  <hr>
+ 
+  <h1 class="text-center"><a href="{% url 'inicio' %}" 
+    class="btn btn-outline-primary" > VOLVER</a href ="{% url 'inicio' %}"></h1>
+  
+  <hr><hr>
+</body>
+{% endblock blockname %} 
+</html>

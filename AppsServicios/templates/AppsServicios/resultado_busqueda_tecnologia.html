@@ -1,0 +1,48 @@
+{% extends "AppsServicios/plantilla_base_2.html" %}
+{% load static %}
+
+<!-- RESULTADO DE BUSQUEDA PARA PROVEEDORES -->
+
+{% block blockname %}
+    <br>
+    <p class="text-center"><img class="img-fluid rounded mb-5 mb-lg-0" src="" alt="..." /></p>
+    <hr>
+    <br>
+    <br>
+    <h2 class="text-center"> BUSQUEDA </h2>
+
+    <p>Resultados de la busqueda para: {{nombre}}</p>
+
+        <center>
+        <table class="table table-striped">
+            <tr>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Version</th>
+            </tr>
+                {% for tecnologia in tecnologia %}
+            <tr>
+                <td>{{tecnologia.nombre}}
+                <td>{{tecnologia.version}}</td>
+
+                <td>
+                    <a style="color: black; text-decoration: none" href="{% url 'editar_tecnologia' tecnologia.id %}">Editar</a> |
+                    <a style="color: black; text-decoration: none" href="{% url 'eliminar_tecnologia' tecnologia.id %}">Eliminar</a> 
+                </td>
+            </tr>
+                {% endfor %}
+            </table>
+        </center>
+
+        {% else %}
+            <p class="text-center"><b>Sin resultados</b>
+            <img src=""/>
+            </p>
+          
+    
+        <p><a href="{% url 'inicio' %}" class="btn btn-outline-primary" disabled> VOLVER </a></p>
+ 
+
+{% endblock blockname %}
+
+
+<!---{% if tecnologia %}  {% endif %}

@@ -1,0 +1,16 @@
+{% extends "AppsServicios/plantilla_base_2.html" %}
+
+{% load static %}
+
+{% block blockname %}
+<body>
+    <br>
+    <p class="text-center"><img class="rounded-circle" src="https://st2.depositphotos.com/4103319/6625/i/600/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg"height="400"alt="..." /></p>
+    <hr>
+    <h1 class="text-center">GRACIAS POR VISITAR APP SERVICES, TE ESPERAMOS PRONTO!</h1>
+    <br>
+    <br>
+
+    <h1 class="text-center"><a href="{% url 'inicio' %}" class="btn btn-outline-primary" disabled>Ir a Inicio</a></h1>
+</body>
+{% endblock blockname %}

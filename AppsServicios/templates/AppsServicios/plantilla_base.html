@@ -1,0 +1,156 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Apps Services</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'AppsServicios/assets/tecno.ico' %}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppsServicios/css/styles.css' %}" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Barra de Navegacion-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="{% url 'inicio' %}">INICIO</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="{% url 'tecnologias' %}">Tecnologias</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'contactos' %}">Contactos</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'servicios' %}">Servicios</a></li>
+                                    
+                                </ul>
+
+                                <div class="container">
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contacto_emails' %}"> | Contacto | </a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'acerca_appsservices' %}">Acerca de Apps Services | </a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Directorio | </a></li>
+                            {% if user.is_authenticated %}
+                            <p style="color: rgb(255, 255, 255); text-decoration: none; margin-right: 10px; margin-top: 7px;">Bienvenido/a {{user.username}}  </p>
+                            <img src="{{ url }}" height="40px" alt="Avatar">
+                                <li class="btn btn-primary" disabled ><a style="color: rgb(255, 255, 255); text-decoration: none" href="{% url 'logout' %}">LOGOUT</a></li>
+                            {% else %}
+                                <li class="btn btn-primary" disabled ><a style="color: rgb(255, 255, 255); text-decoration: none" href="{% url 'login' %}">LOGIN</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Encabezado-->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido a
+                                    <br>Apps Services
+                                </h1>
+                                <p class="lead fw-normal text-white-50 mb-4">Esta es una empresa que se encarga de brindar servicios tecnologicos a LATAM, la cual es creada para la presentaciòn del proyecto final de PYTHON en Coder- House de Yermary Gonzalez y Tobias Carballo.</p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Funcionalidades</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'acerca_appsservices' %}">Sobre Nosotros</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="rounded-circle" src="https://www.zonamovilidad.es/fotos/2/tecnologia-telecomunicaciones-2019.jpg" height="400"alt="..." /></div>
+                    </div>
+                </div>
+            </header>
+            <!-- Info DROGUERIA -->
+            <section class="py-5" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5 mb-lg-0">
+                            <h2 class="fw-bolder mb-0">Innovaciòn tecnologica</h2>
+                            <p>Estar en constante actualizaciòn de tecnologias es nuestro valor màs importante.</p>  
+                        </div>
+
+
+                                <div class="col mb-5 mb-md-0 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                                    <a class="h5" style="color: rgb(135, 13, 13); text-decoration: none" href="{% url 'contactos' %} ">Contactos</a>
+                                    <p class="mb-0">
+                                        Contamos con más de 3.000 presentaciones de productos y accesorios con la mejor relación precio/servicio del mercado.
+                                        <br>
+                                        <br>
+                                        Nuestro plantel de profesionales de amplia experiencia y capacitación permanente están a su disposición para asesorarlo en todo momento.
+                                    </p>
+                                </div>
+
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                                    <a class="h5" style="color: rgb(135, 13, 13); text-decoration: none" href="{% url 'servicios' %}">Servicios</a>
+                                    <p class="mb-0">
+                                        En esta secciòn podra encontrar los servicios que brindamos. 
+                                    </p>
+                                </div>
+
+                                <div class="col h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                    <a class="h5" style="color: rgb(135, 13, 13); text-decoration: none" href="{% url 'tecnologias' %}">Tecnologias</a>
+                                    <p class="mb-0">
+                                        Brindamos un acertado asesoramiento sobre las tecnologias que existen en el mercado respecto a programaciòn y sistemas. 
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr><hr>
+            <!-- Testimonial section-->
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10 col-xl-7">
+                            <div class="text-center">
+                                <div class="fs-4 mb-4 fst-italic">"“El emprendedor del futuro es, ante todo, un creador de productos, y su base de conocimientos es multidisciplinar.”."</div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <img class="rounded-circle me-3" src="https://i.pinimg.com/originals/2c/e8/cb/2ce8cbbd49a56a2ccaa366823a6ce7f0.jpg" height="100" alt="..." />
+                                    <div class="fw-bold">
+                                       Steve Jobs
+                                        <span class="fw-bold text-primary mx-1">/</span>
+                                        Creador y Fundador de Apple
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Pie de Página -->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; CoderHouse 2022 - Yermary Gonzalez</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="{% url 'inicio' %}">Inicio</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="{% url 'acerca_appsservices' %}">Nosotros</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'AppsServicios/js/scripts.js' %}"></script>
+    </body>
+</html>

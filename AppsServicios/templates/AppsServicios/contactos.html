@@ -1,0 +1,66 @@
+{% extends "AppsServicios/plantilla_base_2.html" %}
+
+{% block blockname %}
+
+{% if borrado %}
+
+<div class="eliminado">Fue borrado exitosamente el contacto Id: {{ borrado }}</div>
+
+{% endif %}   
+
+<body>
+  <br>
+  <p class="text-center"><img class="rounded-circle" src="https://watermark.lovepik.com/photo/40150/2130.jpg_wh1200.jpg"height="400"alt="..." /></p>
+  <hr>
+  <br>
+  <h1 class="text-center"> PRINCIPALES CONTACTOS </h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>Contactos </p>
+
+  <center>
+      
+      <table class="table table-striped">
+          <tr>
+            <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Mail</th>
+              <th>Editar ò Eliminar</th>
+
+          </tr>
+          {% for contacto in contacto %}
+          <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{contacto.nombre}}</td>
+              <td>{{contacto.apellido}}</td>
+              <td>{{contacto.email}}</td>
+
+              <td>
+              
+                  <a style="color: black; text-decoration: none" href="{% url 'editar_contacto' contacto.id %}">Editar</a> |
+                  <a style="color: black; text-decoration: none" href="{% url 'eliminar_contacto' contacto.id %}">Eliminar</a> 
+                    
+              </td>
+              
+          </tr>
+              {% endfor %}
+      </table>
+  </center>
+
+  <p> Para agregar un nuevo contacto, click  <a style="text-decoration: none;" href="{% url 'contacto_formulario' %}" class="btn btn-outline-primary">AQUI</a> </p>
+  <hr>
+ 
+  <h1 class="text-center"><a href="{% url 'inicio' %}" 
+    class="btn btn-outline-primary" > VOLVER</a href ="{% url 'inicio' %}"></h1>
+  
+  <hr><hr>  
+</body>
+{% endblock blockname %} 
+</html>
+
+
+<!------------------------------------------------------------>
+

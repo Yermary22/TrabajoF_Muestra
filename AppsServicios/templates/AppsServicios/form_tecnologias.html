@@ -1,0 +1,12 @@
+
+{% extends "AppsServicios/plantilla_base_2.html" %}
+
+{% block blockname %}
+<!--cambiado esto el 02.10-->
+<form method="post">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <input type="submit" value="Enviar" />
+</form>
+
+{% endblock blockname %} 

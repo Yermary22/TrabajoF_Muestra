@@ -1,0 +1,23 @@
+
+{% extends "AppsServicios/plantilla_base_2.html" %}
+
+{% block blockname %}
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>Nombre:
+        <input type="text" name="nombre">
+    </p>
+
+    <p>Valor:
+        <input type="text" name="valor">
+    </p>
+
+    <p>Tiempo:
+        <input type="text" name="tiempo">
+    </p>
+    <input type="submit"name="Enviar" />
+</form>
+
+{% endblock blockname %} 

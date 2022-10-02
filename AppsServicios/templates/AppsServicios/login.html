@@ -1,0 +1,24 @@
+{% extends "AppsServicios/plantilla_base_2.html" %}
+{% load static %}
+
+{% block blockname %}
+<Body>
+    <br>
+    <p class="text-center"><img class="rounded-circle" src="http://www.clker.com/cliparts/m/b/C/c/X/D/login-md.png"height="400" alt="..." /></p>
+    <hr>
+
+
+    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input type="submit" value="LOGIN">
+        <br>
+        <h1 class="text-center"><a href="{% url 'register' %}" class="btn btn-outline-primary" >REGISTRATE</a></h1>
+        <hr>
+        <h1 class="text-center"><a href="{% url 'inicio' %}" class="btn btn-outline-primary" disabled> VOLVER</a></h1>
+        <hr><hr>
+      
+    </form>
+</Body>
+{% endblock blockname %}
